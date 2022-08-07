@@ -1,0 +1,9 @@
+HINT: to get your scripts to run, run "chmod +x scripts/*" when inside of the code/ directory.
+
+HINT: if you ever need to run "pip3 install <some package>", you should just add the 
+    package to the requirements file, and run "pip3 install -r requirements.txt"
+
+HINT: creating a virtual environment should probably only happen once, though running the install
+    requirements.txt command could happen many times (run it outside of a script in your terminal)
+
+HINT: closely review the deploy_lambda.sh script when you're about to begin writing python code!

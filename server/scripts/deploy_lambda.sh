@@ -1,18 +1,20 @@
 #!/bin/bash
 
-source ../env/bin/activate
+#### NOTE: FOR THIS SCRIPT TO WORK, MUST PRESENTLY BE IN /server DIRECTORY!!!!
+####        MUST ALSO HAVE A VIRTUAL ENV (/env)
+
+source env/bin/activate
 
 pip3 install -r requirements.txt
 
 deactivate
 
-cd ./env/lib/python3.9/site-packages
+cd env/lib/python3.9/site-packages
 
 zip -r ../../../../deploy.zip .
 
-cd ../../../../code/
+cd ../../../../
 
-# anytime you add folders / files that are used in lambda main,
-zip -g deploy.zip lambda_main.py   # they need to be added here
+zip -g deploy.zip lambda_main.py
 
-aws lambda update-function-code --function-name <REPLACEME_WITH_LAMBDA_NAME> --zip-file fileb://deploy.zip
+aws lambda update-function-code --function-name uni-note --zip-file fileb://deploy.zip
